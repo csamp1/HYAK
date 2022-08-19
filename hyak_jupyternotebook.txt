@@ -39,5 +39,5 @@ jupyter-notebook --port <port#> --ip 0.0.0.0
 
 ssh <NETID>@klone.hyak.uw.edu -L <port#>:<node#>:<port#>
 
-8. Copy url from step 6 into browser. Jupyter Notebook will open with the directory
+8. Enter in browser: http://localhost:<port#> . Jupyter Notebook will open with the directory
  	you accessed in step 2.
