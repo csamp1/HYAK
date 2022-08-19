@@ -1,0 +1,43 @@
+### Using Jupyter Notebook on HYAK:
+
+RCC Documentation @ https://hyak.uw.edu/docs/tools/jupyter
+
+1. Sign on to HYAK (enter Password and duo login when prompted)
+
+ssh <NETID>@klone.hyak.uw.edu
+
+2. Navigate to your project's directory
+
+EX: cd /gscratch/stf/<yourfolder>
+
+3. Install Jupyter Notebook
+
+    python3 -m venv ~/venvs/jupyter-notebook
+    source ~/venvs/jupyter-notebook/bin/activate
+    pip3 install notebook
+
+4. Open Job allocation
+
+ 
+salloc -A <stf> -p compute --time=<1:00:00> --mem=<10G> -c <1>
+
+**Fill in your <partition>, <desired computing time>, <memory>, and <# of cores>
+
+5. Activate environment containing jupyter-notebook
+
+source ~/venvs/jupyter-notebook/bin/activate
+
+6. Start notebook server
+
+jupyter-notebook --port <port#> --ip 0.0.0.0
+
+** Port# is any unique number between 5000-16000
+** Note printed url of the form: "http://n3263:10503/"
+** This gives you <node#>:<port#>
+
+7. Open new terminal window. Open new SSH session and enter password.
+
+ssh <NETID>@klone.hyak.uw.edu -L <port#>:<node#>:<port#>
+
+8. Copy url from step 6 into browser. Jupyter Notebook will open with the directory
+ 	you accessed in step 2.
